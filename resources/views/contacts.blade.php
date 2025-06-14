@@ -4,22 +4,9 @@
     <div class="container mt-5">
         <h2>Contact Us</h2>
 
-        @if ($errors->any())
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+        @include('templates.errors')
 
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
+        <x-message.success :type="'warning'"/>
 
         <form action="/contacts" method="POST">
             @csrf
