@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Rules\PhoneNumber;
 
 class MainController extends Controller
 {
@@ -17,6 +18,21 @@ class MainController extends Controller
     public function contacts()
     {
         return view('contacts');
+    }
+
+    public function sendMail(Request $request)
+    {
+       $request->validate([
+           'name' => 'required',
+           'email' => 'required|email',
+           'message' => 'required',
+           'phone' =>  ['required', 'string', new PhoneNumber],
+       ]);
+
+       //dd($request->name);
+    //    dd($request->all());
+
+       return redirect()->back()->with('success', 'Your message has been sent');
     }
 
 }
