@@ -3,8 +3,8 @@
 @section('content')
 <div class="container mt-5">
     <h2>Contact Us</h2>
-        @csrf
-
+    <form action="/contacts" method="POST">
+        
         <div class="mb-3">
             <label for="name" class="form-label">Name</label>
             <input 
@@ -13,7 +13,7 @@
                 id="name" 
                 name="name" 
                 placeholder="Your Name"
-                required
+                
             >
         </div>
 
@@ -25,7 +25,7 @@
                 id="email" 
                 name="email" 
                 placeholder="your@example.com"
-                required
+                
             >
         </div>
 
@@ -37,7 +37,7 @@
                 id="phone" 
                 name="phone" 
                 placeholder="+380123456789"
-                required
+                
             >
         </div>
 
@@ -49,7 +49,7 @@
                 name="message" 
                 rows="4"
                 placeholder="Write your message here..."
-                required
+                
             ></textarea>
         </div>
 
