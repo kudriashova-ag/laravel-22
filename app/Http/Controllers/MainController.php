@@ -14,4 +14,9 @@ class MainController extends Controller
         return view('index', compact('title', 'subtitle', 'users'));
     }
 
+    public function contacts()
+    {
+        return view('contacts');
+    }
+
 }
