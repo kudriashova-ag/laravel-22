@@ -8,7 +8,7 @@
 
         <x-message.success :type="'warning'"/>
 
-        <form action="/contacts" method="POST">
+        <form action="{{ route('contacts.send') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Name</label>
