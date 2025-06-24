@@ -8,6 +8,7 @@ use App\Models\Actor;
 use App\Models\Category;
 use App\Models\Movie;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,10 +19,12 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\User::factory()->create([
+            'name' => 'Kudriashova Anastaciia',
+            'email' => 'kudriashova.ag@gmail.com',
+            'password' => Hash::make('12345678'),
+            'role' => 'admin'
+        ]);
 
 
         $categories = Category::factory()->count(5)->create();

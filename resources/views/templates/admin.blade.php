@@ -9,7 +9,7 @@
 
     <title>@yield('title', 'Laravel Project')</title>
 
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @vite(['resources/sass/admin/admin.scss', 'resources/js/admin/admin.js'])
 
 </head>
 
