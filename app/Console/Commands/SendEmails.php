@@ -32,13 +32,7 @@ class SendEmails extends Command
     {
         // всім юзерам відправляємо email з новинками фільмів - назви (5 штук) 
         // Зробити клас mail (command)
-        // Mail::to($user)->send(new SendMail($request->all()));
-        
-        $movies = Movie::orderBy('created_at', 'desc')->take(5)->get()->toArray();
-        Log::info($movies);
-        $users = User::all();
-        foreach ($users as $user) {
-            Mail::to($user)->send(new SendMailMovies($movies));
-        }
+
+
     }
 }
