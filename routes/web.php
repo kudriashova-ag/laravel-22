@@ -21,6 +21,9 @@ Route::get('/contacts', [MainController::class, 'contacts'])->name('contacts');
 Route::post('/contacts', [MainController::class, 'sendMail'])->name('contacts.send');
 
 
+//Route::get('/movies/{movie:slug}', [MainController::class, 'movies'])->name('movies');
+
+
 
 Route::prefix('admin')->middleware(['auth', 'admin'])->group(function () {
     Route::resource('categories', CategoryController::class);

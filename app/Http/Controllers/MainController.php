@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use Illuminate\Http\Request;
 use App\Rules\PhoneNumber;
+use Illuminate\Support\Facades\Mail;
 
 class MainController extends Controller
 {
@@ -31,6 +33,9 @@ class MainController extends Controller
 
        //dd($request->name);
     //    dd($request->all());
+
+       // Send email
+       Mail::to('kudriashova.ag@gmail.com')->send(new SendMail($request->all()));
 
        return redirect()->back()->with('success', 'Your message has been sent');
     }

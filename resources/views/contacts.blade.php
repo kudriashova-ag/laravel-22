@@ -6,7 +6,7 @@
 
         @include('templates.errors')
 
-        <x-message.success :type="'warning'"/>
+        {{-- <x-message.success :type="'warning'"/> --}}
 
         <form action="{{ route('contacts.send') }}" method="POST">
             @csrf

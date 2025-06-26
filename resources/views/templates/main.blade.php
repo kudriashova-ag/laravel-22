@@ -26,19 +26,35 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('home') }}">Home</a>
+                        <a class="nav-link {{ Route::is('home') ? 'active' : '' }}"
+                            {{ Route::is('home') ? 'aria-current="page"' : '' }} href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('contacts') }}">Contacts</a>
+                        <a class="nav-link {{ Route::is('contacts') ? 'active' : '' }}"
+                            {{ Route::is('contacts') ? 'aria-current="page"' : '' }}
+                            href="{{ route('contacts') }}">Contacts</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Categories
+                        </a>
+                        <ul class="dropdown-menu">
+                            @foreach ($categories_share as $category_share)
+                                <li><a class="dropdown-item" href="#">{{ $category_share->name }}</a></li>
+                            @endforeach
+                        </ul>
                     </li>
                 </ul>
+
+
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" />
                     <button class="btn btn-outline-success" type="submit">Search</button>
                 </form>
                 <ul class="navbar-nav ms-auto">
-                    
-          
+
+
                     <!-- Authentication Links -->
                     @guest
                         @if (Route::has('login'))
@@ -53,6 +69,12 @@
                             </li>
                         @endif
                     @else
+                        @admin
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('categories.index') }}">Admin</a>
+                            </li>
+                        @endadmin
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
