@@ -90,6 +90,14 @@ class CategoryController extends Controller
         ]);
 
         $category->update($request->all());
+
+        if($request->expectsJson()){
+            return response()->json([
+                'message' => 'Category updated successfully',
+                'category' => $category
+            ]);
+        }
+        
         return redirect()->route('categories.index');
     }
 

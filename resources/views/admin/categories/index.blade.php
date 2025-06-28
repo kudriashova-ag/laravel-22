@@ -17,12 +17,14 @@
         </thead>
         <tbody>
             @foreach($categories as $category)
-                <tr>
+                <tr data-id="{{$category->id}}">
                     <td>{{$loop->iteration}}</td>
                     <td>
                         <img src="{{asset('storage/' . $category->image)}}" alt="{{$category->name}}" style="width: 100px">
                     </td>
-                    <td>{{$category->name}}</td>
+                    <td> 
+                        <div class="text-primary category-name-js" contenteditable="true">{{$category->name}}</div> 
+                    </td>
                     <td>{{$category->short_description}}</td>
                     <td>
                         <a href="{{route('categories.edit', $category->id)}}" class="btn btn-warning">Edit</a>
